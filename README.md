@@ -1,4 +1,4 @@
-## Overview
+verview
 
 This project focuses on monitoring virtual machines to track CPU, memory, and disk usage for each server.
 
@@ -206,12 +206,7 @@ resource "aws_instance" "web_targets" {
   }
 }
 EOF
-
-## Installer tree
-sudo yum update -y
-sudo yum install tree -y
-tree --version
-tree modules/ec2-cluster
+```
 
 ## Create the Root `main.tf` to Call the `ec2-cluster` Module
 
@@ -230,18 +225,7 @@ module "ec2_cluster" {
   web_instance_count = 4                       # Number of web target servers
 }
 EOF
-
-
-## lister les AMI ubuntu
-aws ec2 describe-images \
-  --owners 099720109477 \
-  --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*" \
-            "Name=state,Values=available" \
-  --query 'Images[*].[ImageId,Name]' \
-  --region us-east-1 \
-  --output table
-
-ami-05ec1e5f7cfe5ef59
+```
 
 ## Project Structure
 
@@ -932,5 +916,6 @@ Run the following command from the `vm-monitor` directory:
 ```bash
 ansible-playbook playbook.yml
 ```
+
 
 
