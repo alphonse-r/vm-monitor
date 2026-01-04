@@ -1,0 +1,68 @@
+############################
+# System & User Files
+############################
+.bash*
+.profile
+.cache/
+.cache*
+.config/
+.config*
+.ssh/
+.terminal_logs/
+.history
+.lesshst
+.wget-hsts
+
+############################
+# SSH & Security
+############################
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+authorized_keys
+
+############################
+# Ansible
+############################
+*.retry
+*.log
+ansible.log
+inventory/*.json
+
+############################
+# Terraform
+############################
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+############################
+# Python
+############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+
+############################
+# Editors & IDEs
+############################
+.vscode/
+.idea/
+*.swp
+*.swo
+
+############################
+# OS Files
+############################
+.DS_Store
+Thumbs.db
+
+
+.viminfo
+.sudo_as*
