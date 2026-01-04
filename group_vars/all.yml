@@ -1,0 +1,5 @@
+smtp_server: "smtp.gmail.com"
+smtp_port: 587
+email_user: "alphonsekloud@gmail.com"
+email_pass: "shky wzeq ktdz rmed"
+alert_recipient: "alphonserandria@gmail.com"

@@ -1,0 +1,25 @@
+# Dynamic Inventory AWS EC2 pour le projet Ansible
+# Plugin officiel Ansible pour récupérer automatiquement toutes les instances EC2 dans AWS
+# Filtrage basé sur le tag Environment=dev et les instances en état running
+
+plugin: amazon.aws.aws_ec2    # Plugin officiel Ansible pour AWS EC2
+regions:
+  - us-east-1                 # Région N. Virginia
+filters:
+  "tag:Environment": dev      # Filtre sur le tag Environment=dev
+  instance-state-name: running  # Filtre pour récupérer uniquement les instances en cours d'exécution
+
+compose:
+  ansible_host: public_ip_address   # Utilise l'IP publique pour se connecter via SSH
+
+# Groupes dynamiques basés sur les tags
+keyed_groups:
+  - key: tags.Name      # Crée un groupe basé sur le tag Name
+    prefix: name        # Le nom du groupe sera 'name_<Name>'
+  - key: tags.Environment  # Crée un groupe basé sur le tag Environment
+    prefix: env            # Le nom du groupe sera 'env_<Environment>'
+
+# SSH configuration pour toutes les instances
+hostvars:
+  ansible_user: ubuntu                # Utilisateur par défaut pour Ubuntu 22.04
+  ansible_ssh_private_key_file: ~/ansible-key.pem  # Chemin vers la clé privée partagée
